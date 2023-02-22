@@ -1,9 +1,14 @@
 <?php
 
+use App\Http\Controllers\AboutAsController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\AboutController;
 use App\Http\Controllers\ArticleController;
+use App\Http\Controllers\ProductController;
+use App\Http\Controllers\NewsController;
+use App\Http\Controllers\ProgramController;
+use App\Http\Controllers\ContactUsController;
 
 /*
 |--------------------------------------------------------------------------
@@ -16,8 +21,22 @@ use App\Http\Controllers\ArticleController;
 |
 */
 
-Route::get('/', [HomeController::class, 'index']);
+Route::get('/home', [HomeController::class, 'index']);
+
+Route::prefix('product')->group(function() {
+    Route::get('/marbel', [ProductController::class, 'index']);
+});
+
+Route::get('/news/{news}', [NewsController::class, 'index']);
+
+Route::prefix('program')->group(function() {
+    Route::get('/daftar', [ProgramController::class, 'index']);
+});
+
+Route::get('/aboutas', [AboutAsController::class, 'index']);
+
+Route::resource('contactus', ContactUsController::class);
 
 Route::get('/about', [AboutController::class, 'index']);
 
-Route::get('/articles/{id}', [ArticleController::class, 'articles']);
+Route::get('/articles/{id}', [ArticleController::class, 'index']);
