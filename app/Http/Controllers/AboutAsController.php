@@ -7,7 +7,8 @@ use Illuminate\Http\Request;
 class AboutAsController extends Controller
 {
     function index() {
-        echo "<p><a href='https://www.educastudio.com/about-us'>
-        Tentang Kami</p>";
+        return view('about-as')
+                    ->with('name', 'Muhammad Aqilul Muttaqin')
+                    ->with('nim', 2141720182);
     }
 }
