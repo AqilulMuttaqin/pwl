@@ -35,7 +35,7 @@
           <!-- Add icons to the links using the .nav-icon class
                with font-awesome or any other icon font library -->
           <li class="nav-item">
-            <a href="/dashboard" class="nav-link">
+            <a href="{{ url('/dashboard') }}" class="nav-link">
               <i class="nav-icon fas fa-tachometer-alt"></i>
               <p>
                 Dashboard
@@ -43,7 +43,7 @@
             </a>
           </li>
           <li class="nav-item">
-            <a href="profile" class="nav-link">
+            <a href="{{ url('/profile') }}" class="nav-link">
               <i class="nav-icon fas fa-address-book"></i>
               <p>
                 Profile
@@ -51,10 +51,18 @@
             </a>
           </li>
           <li class="nav-item">
-            <a href="kuliah" class="nav-link">
+            <a href="{{ url('/kuliah') }}" class="nav-link">
               <i class="nav-icon fas fa-edit"></i>
               <p>
                 Kuliah
+              </p>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a href="{{ url('/artikel') }}" class="nav-link">
+              <i class="nav-icon fas fa-book  "></i>
+              <p>
+                Artikel
               </p>
             </a>
           </li>

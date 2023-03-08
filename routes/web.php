@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\AboutController;
 use App\Http\Controllers\ArticleController;
+use App\Http\Controllers\ArtikelModelController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\NewsController;
 use App\Http\Controllers\ProgramController;
@@ -51,3 +52,6 @@ Route::get('/dashboard', [DashboardController::class, 'index']);
 Route::get('/profile', [ProfileController::class, 'index']);
 
 Route::get('/kuliah', [KuliahController::class, 'index']);
+
+Route::get('/artikel', [ArtikelModelController::class, 'index']);
+
