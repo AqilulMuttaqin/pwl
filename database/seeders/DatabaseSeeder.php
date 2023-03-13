@@ -15,7 +15,10 @@ class DatabaseSeeder extends Seeder
     public function run()
     {
         $this->call([
-            ArtikelModelSeeder::class
+            // ArtikelModelSeeder::class
+            // HobiModelSeeder::class
+            // KeluargaModelSeeder::class
+            MatkulModelSeeder::class
         ]);
         // \App\Models\User::factory(10)->create();
 

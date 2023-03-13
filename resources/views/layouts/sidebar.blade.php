@@ -66,6 +66,30 @@
               </p>
             </a>
           </li>
+          <li class="nav-item">
+            <a href="{{ url('/hobi') }}" class="nav-link">
+              <i class="nav-icon fas fa-gamepad  "></i>
+              <p>
+                Data Hobi
+              </p>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a href="{{ url('/keluarga') }}" class="nav-link">
+              <i class="nav-icon fas fa-address-card  "></i>
+              <p>
+                Data Keluarga
+              </p>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a href="{{ url('/matkul') }}" class="nav-link">
+              <i class="nav-icon fas fa-building  "></i>
+              <p>
+                Data Mata Kuliah
+              </p>
+            </a>
+          </li>
         </ul>
       </nav>
       <!-- /.sidebar-menu -->

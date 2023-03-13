@@ -11,8 +11,11 @@ use App\Http\Controllers\NewsController;
 use App\Http\Controllers\ProgramController;
 use App\Http\Controllers\ContactUsController;
 use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\HobiModelController;
+use App\Http\Controllers\KeluargaModelController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\KuliahController;
+use App\Http\Controllers\MatkulModelController;
 
 /*
 |--------------------------------------------------------------------------
@@ -53,5 +56,14 @@ Route::get('/profile', [ProfileController::class, 'index']);
 
 Route::get('/kuliah', [KuliahController::class, 'index']);
 
+//Prak 4
+
 Route::get('/artikel', [ArtikelModelController::class, 'index']);
 
+//Prak 4 Tugas
+
+Route::get('/hobi', [HobiModelController::class, 'index']);
+
+Route::get('/keluarga', [KeluargaModelController::class, 'index']);
+
+Route::get('/matkul', [MatkulModelController::class, 'index']);
