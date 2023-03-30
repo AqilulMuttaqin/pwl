@@ -18,7 +18,7 @@ class DatabaseSeeder extends Seeder
             // ArtikelModelSeeder::class
             // HobiModelSeeder::class
             // KeluargaModelSeeder::class
-            MatkulModelSeeder::class
+            // MatkulModelSeeder::class
         ]);
         // \App\Models\User::factory(10)->create();
 
