@@ -9,5 +9,12 @@ class MatkulModel extends Model
 {
     use HasFactory;
     protected $table = 'matkul';
-    protected $primaryKey = 'id_matkul';
+    protected $primaryKey = 'id';
+    protected $keyType = 'int';
+    protected $fillable = [
+        'id',
+        'nama_matkul',
+        'sks',
+        'jam',
+    ];
 }

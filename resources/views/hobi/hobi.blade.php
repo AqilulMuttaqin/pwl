@@ -3,6 +3,11 @@
 <div class="content-wrapper">
     <!-- Content Header (Page header) -->
     <section class="content-header">
+      @if (session()->has('success'))
+            <div class="alert alert-success">
+                {{ session("success") }}
+            </div>
+        @endif
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
@@ -33,25 +38,40 @@
           </div>
         </div>
         <div class="card-body">
-            <table class="table table-bordered tabel-hover">
-                <thead class="table">
-                    <tr class="text-center bg-secondary">
-                        <td>No</td>
-                        <td>Hobi</td>
-                    </tr>
-                </thead>
-                <tbody>
-                  @php
-                    $no = 1;
-                  @endphp
-                  @foreach ($hobi as $h)
-                    <tr>
-                      <td class="text-center">{{ $no++ }}</td>
-                      <td>{{ $h->daftar_hobi }}</td>
-                    </tr>
-                  @endforeach
-                </tbody>
-            </table>
+          <a href="{{url('hobi/create')}}" class="btn btn-sm btn-success my-2">Tambah Data</a>
+          <table class="table table-bordered tabel-hover">
+            <thead class="table">
+              <tr class="text-center bg-secondary">
+                <td>No</td>
+                <td>Hobi</td>
+                <td>Action</td>
+              </tr>
+            </thead>
+            <tbody>
+            @php
+            $no = 1;
+            @endphp
+            @if ($hobi->count() > 0)
+            @foreach ($hobi as $h)
+            <tr>
+              <td class="text-center">{{ $no++ }}</td>
+              <td>{{ $h->daftar_hobi }}</td>
+              <td>
+                <!-- Bikin tombol edit dan delete -->
+                <a href="{{ url('/hobi/'. $h->id.'/edit') }}" class="btn btn-sm btn-warning">edit</a>
+                <form method="POST" action="{{ url('/hobi/'.$h->id) }}" >
+                  @csrf
+                  @method('DELETE')
+                  <button type="submit" class="btn btn-sm btn-danger">hapus</button>
+                </form>
+              </td>
+            </tr>
+            @endforeach
+            </tbody>
+            @else
+              <tr><td colspan="6" class="text-center">Data tidak ada</td></tr>
+            @endif
+          </table>
         </div>
         <!-- /.card-body -->
         <div class="card-footer">

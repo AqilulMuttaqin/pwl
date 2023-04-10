@@ -16,6 +16,7 @@ use App\Http\Controllers\HobiModelController;
 use App\Http\Controllers\KeluargaModelController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\KuliahController;
+use App\Http\Controllers\MahasiswaController;
 use App\Http\Controllers\MatkulModelController;
 use Illuminate\Support\Facades\Auth;
 
@@ -75,9 +76,22 @@ Route::middleware(['auth'])->group(function(){
 
     //Prak 4 Tugas
 
-    Route::get('/hobi', [HobiModelController::class, 'index']);
+    // Route::get('/hobi', [HobiModelController::class, 'index']);
 
-    Route::get('/keluarga', [KeluargaModelController::class, 'index']);
+    // Route::get('/keluarga', [KeluargaModelController::class, 'index']);
 
-    Route::get('/matkul', [MatkulModelController::class, 'index']);
+    // Route::get('/matkul', [MatkulModelController::class, 'index']);
+
+    //Pert 7
+
+    Route::resource('/mahasiswa', MahasiswaController::class);
+
+    //Pert 7 Tugas
+
+    Route::resource('/hobi', HobiModelController::class);
+
+    Route::resource('/keluarga', KeluargaModelController::class);
+
+    Route::resource('/matkul', MatkulModelController::class);
+    
 });
