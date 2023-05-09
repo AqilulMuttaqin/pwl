@@ -46,14 +46,27 @@
             </div>
             <div class="form-group">
               <label>Nama</label>
-              <input class="form-control" @error('nama') is-invalid @enderror type="text" value="{{ isset($kelaurga)? $keluarga->nama : old('nama') }}" name="nama">
+              <input class="form-control" @error('nama') is-invalid @enderror type="text" value="{{ isset($keluarga)? $keluarga->nama : old('nama') }}" name="nama">
               @error('nama')
                 <span class="error invalid-feedback">{{ $message }}</span>
               @enderror
             </div>
+            @if (isset($keluarga))
             <div class="form-group">
               <label>Jenis Kelamin</label>
-              <select class="form-control" @error('jenis_kelamin') is-invalid @enderror value="{{ isset($keluarga)? $keluarga->jenis_kelamin : old('jenis_kelamin') }}" name="jenis_kelamin">
+              <select class="form-control" @error('jenis_kelamin') is-invalid @enderror name="jenis_kelamin">
+                <option value="">--Pilih Jenis Kelamin--</option>
+                <option value="Laki-laki" {{ $keluarga->jenis_kelamin == 'Laki-laki'? 'selected' : '' }}>Laki-laki</option>
+                <option value="Perempuan" {{ $keluarga->jenis_kelamin == 'Perempuan'? 'selected' : '' }}>Perempuan</option>
+              </select>
+              @error('jenis_kelamin')
+                <span class="error invalid-feedback">{{ $message }}</span>
+              @enderror
+            </div>
+            @else
+            <div class="form-group">
+              <label>Jenis Kelamin</label>
+              <select class="form-control" @error('jenis_kelamin') is-invalid @enderror name="jenis_kelamin">
                 <option value="">--Pilih Jenis Kelamin--</option>
                 <option value="Laki-laki">Laki-laki</option>
                 <option value="Perempuan">Perempuan</option>
@@ -62,9 +75,10 @@
                 <span class="error invalid-feedback">{{ $message }}</span>
               @enderror
             </div>
+            @endif
             <div class="form-group">
               <label>Tanggal Lahir</label>
-              <input type="date" class="form-control" name="tgl_lahir" value="{{ old('tgl_lahir') }}">
+              <input type="date" class="form-control" name="tgl_lahir" value="{{ isset($keluarga)? $keluarga->tgl_lahir : old('tgl_lahir') }}">
               @error('tgl_lahir')
                   <span class="error invalid-feedback">{{ $message }}</span>
               @enderror

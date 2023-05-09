@@ -39,21 +39,42 @@
         
             <div class="form-group">
               <label>NIM</label>
-              <input class="form-control" @error('nim') is-invalid @enderror type="text" value="{{ isset($mhs)? $mhs->nim : old('nim') }}" name="nim">
+              <input class="form-control @error('nim') is-invalid @enderror" type="text" value="{{ isset($mhs)? $mhs->nim : old('nim') }}" name="nim">
               @error('nim')
                 <span class="error invalid-feedback">{{ $message }}</span>
               @enderror
             </div>
             <div class="form-group">
               <label>Nama</label>
-              <input class="form-control" @error('nama') is-invalid @enderror type="text" value="{{ isset($mhs)? $mhs->nama : old('nama') }}" name="nama">
+              <input class="form-control @error('nama') is-invalid @enderror" type="text" value="{{ isset($mhs)? $mhs->nama : old('nama') }}" name="nama">
               @error('nama')
                 <span class="error invalid-feedback">{{ $message }}</span>
               @enderror
             </div>
             <div class="form-group">
+              <label>Kelas</label>
+              <select class="form-control @error('kelas') is-invalid @enderror" value="{{ isset($mhs)? $mhs->kelas : old('kelas') }}" name="kelas">
+                @foreach ($kelas as $kls)
+                  <option value="{{$kls->id}}" {{ $mhs->kelas_id == $kls->id ? 'selected' : '' }}>{{$kls->nama_kelas}}</option>
+                @endforeach
+              </select>
+            </div>
+            @if (isset($mhs))
+            <div class="form-group">
               <label>Jenis Kelamin</label>
-              <select class="form-control" @error('jk') is-invalid @enderror value="{{ isset($mhs)? $mhs->jk : old('jk') }}" name="jk">
+              <select class="form-control @error('jk') is-invalid @enderror" name="jk">
+                <option value="">--Pilih Jenis Kelamin--</option>
+                <option value="l" {{ $mhs->jk == 'l'? 'selected' : '' }}>Laki-laki</option>
+                <option value="p" {{ $mhs->jk == 'p'? 'selected' : '' }}>Perempuan</option>
+              </select>
+              @error('jk')
+                <span class="error invalid-feedback">{{ $message }}</span>
+              @enderror
+            </div>
+            @else 
+            <div class="form-group">
+              <label>Jenis Kelamin</label>
+              <select class="form-control @error('jk') is-invalid @enderror" name="jk">
                 <option value="">--Pilih Jenis Kelamin--</option>
                 <option value="l">Laki-laki</option>
                 <option value="p">Perempuan</option>
@@ -62,30 +83,31 @@
                 <span class="error invalid-feedback">{{ $message }}</span>
               @enderror
             </div>
+            @endif
             <div class="form-group">
               <label>Tempat Lahir</label>
-              <input class="form-control" @error('tempat_lahir') is-invalid @enderror type="text" value="{{ isset($mhs)? $mhs->tempat_lahir : old('tempat_lahir') }}" name="tempat_lahir">
+              <input class="form-control @error('tempat_lahir') is-invalid @enderror" type="text" value="{{ isset($mhs)? $mhs->tempat_lahir : old('tempat_lahir') }}" name="tempat_lahir">
               @error('tempat_lahir')
                 <span class="error invalid-feedback">{{ $message }}</span>
               @enderror
             </div>
             <div class="form-group">
               <label>Tanggal Lahir</label>
-              <input type="date" class="form-control" name="tanggal_lahir" value="{{ old('tanggal_lahir') }}">
+              <input type="date" class="form-control" name="tanggal_lahir" value="{{ isset($mhs)? $mhs->tanggal_lahir : old('tanggal_lahir') }}">
               @error('tanggal_lahir')
                   <span class="error invalid-feedback">{{ $message }}</span>
               @enderror
             </div>
             <div class="form-group">
               <label>Alamat</label>
-              <input class="form-control" @error('alamat') is-invalid @enderror type="text" value="{{ isset($mhs)? $mhs->alamat : old('alamat') }}" name="alamat">
+              <input class="form-control @error('alamat') is-invalid @enderror" type="text" value="{{ isset($mhs)? $mhs->alamat : old('alamat') }}" name="alamat">
               @error('alamat')
                 <span class="error invalid-feedback">{{ $message }}</span>
               @enderror
             </div>
             <div class="form-group">
               <label>No.Hp</label>
-              <input class="form-control" @error('hp') is-invalid @enderror type="text" value="{{ isset($mhs)? $mhs->hp : old('hp') }}" name="hp">
+              <input class="form-control @error('hp') is-invalid @enderror" type="text" value="{{ isset($mhs)? $mhs->hp : old('hp') }}" name="hp">
               @error('hp')
                 <span class="error invalid-feedback">{{ $message }}</span>
               @enderror
