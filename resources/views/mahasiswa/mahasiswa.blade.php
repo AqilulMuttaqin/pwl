@@ -41,9 +41,9 @@
 
             <a href="{{url('mahasiswa/create')}}" class="btn btn-sm btn-success my-2">Tambah Data</a>
   
-            <table class="table table-bordered table-striped">
-              <thead>
-                <tr>
+            <table class="table table-bordered tabel-hover">
+              <thead class="table">
+                <tr class="text-center bg-secondary">
                   <th>No</th>
                   <th>NIM</th>
                   <th>Nama</th>
@@ -63,8 +63,8 @@
                       <td>{{$m->kelas->nama_kelas}}</td>
                       <td>{{$m->jk}}</td>
                       <td>{{$m->hp}}</td>
-                      <td>
-                        <!-- Bikin tombol edit dan delete -->
+                      <td class="d-flex justify-content-center">
+                        <!-- Bikin tombol edit dan delete dan nilai -->
                         <a href="{{ url('/mahasiswa/'. $m->id.'/edit') }}" class="btn btn-sm btn-warning">edit</a>
   
                         <form method="POST" action="{{ url('/mahasiswa/'.$m->id) }}" >
@@ -72,6 +72,7 @@
                           @method('DELETE')
                           <button type="submit" class="btn btn-sm btn-danger">hapus</button>
                         </form>
+                        <a href="{{ url('/mahasiswa/'. $m->id.'/khs') }}" class="btn btn-sm btn-info">nilai</a>
                       </td>
                     </tr>
                   @endforeach

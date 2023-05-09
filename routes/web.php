@@ -93,5 +93,7 @@ Route::middleware(['auth'])->group(function(){
     Route::resource('/keluarga', KeluargaModelController::class);
 
     Route::resource('/matkul', MatkulModelController::class);
-    
+
+    //Latihan Pert 9
+    Route::get('mahasiswa/{id}/khs', [MahasiswaController::class, 'showKhs']);
 });

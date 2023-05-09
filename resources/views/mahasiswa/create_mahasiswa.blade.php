@@ -51,6 +51,7 @@
                 <span class="error invalid-feedback">{{ $message }}</span>
               @enderror
             </div>
+            @if (isset($mhs))
             <div class="form-group">
               <label>Kelas</label>
               <select class="form-control @error('kelas') is-invalid @enderror" value="{{ isset($mhs)? $mhs->kelas : old('kelas') }}" name="kelas">
@@ -59,6 +60,16 @@
                 @endforeach
               </select>
             </div>
+            @else
+            <div class="form-group">
+              <label>Kelas</label>
+              <select class="form-control @error('kelas') is-invalid @enderror" value="{{ isset($mhs)? $mhs->kelas : old('kelas') }}" name="kelas">
+                @foreach ($kelas as $kls)
+                  <option value="{{$kls->id}}">{{$kls->nama_kelas}}</option>
+                @endforeach
+              </select>
+            </div>  
+            @endif
             @if (isset($mhs))
             <div class="form-group">
               <label>Jenis Kelamin</label>
