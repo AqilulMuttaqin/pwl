@@ -61,7 +61,7 @@ Route::middleware(['auth'])->group(function(){
 
     Route::get('/about', [AboutController::class, 'index']);
 
-    Route::get('/article/{id}', [ArticleController::class, 'index']);
+    //Route::get('/article/{id}', [ArticleController::class, 'index']);
 
     //Jobsheet 3 Prak 2
 
@@ -100,4 +100,6 @@ Route::middleware(['auth'])->group(function(){
 
     //Pert 10
     Route::resource('articles', ArticlesController::class);
+
+    Route::get('/article/cetak_pdf', [ArticlesController::class, 'cetak_pdf']);
 });
