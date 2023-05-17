@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\AboutController;
 use App\Http\Controllers\ArticleController;
+use App\Http\Controllers\ArticlesController;
 use App\Http\Controllers\ArtikelModelController;
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\ProductController;
@@ -60,7 +61,7 @@ Route::middleware(['auth'])->group(function(){
 
     Route::get('/about', [AboutController::class, 'index']);
 
-    Route::get('/articles/{id}', [ArticleController::class, 'index']);
+    Route::get('/article/{id}', [ArticleController::class, 'index']);
 
     //Jobsheet 3 Prak 2
 
@@ -96,4 +97,7 @@ Route::middleware(['auth'])->group(function(){
 
     //Latihan Pert 9
     Route::get('mahasiswa/{id}/khs', [MahasiswaController::class, 'showKhs']);
+
+    //Pert 10
+    Route::resource('articles', ArticlesController::class);
 });
