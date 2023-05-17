@@ -24,7 +24,7 @@
     <section class="content">
       <div class="card">
         <div class="card-header">
-          <h3 class="card-title">Buat Artikel</h3>
+          <h3 class="card-title">Edit Artikel</h3>
           <div class="card-tools">
             <button type="button" class="btn btn-tool" data-card-widget="collapse" title="Collapse">
               <i class="fas fa-minus"></i>
@@ -35,17 +35,23 @@
           </div>
         </div>
         <div class="card-body">
-            <form action="/articles" method="post" enctype="multipart/form-data">
+            <form action="/articles/{{$article->id}}" method="post" enctype="multipart/form-data">
+                @method('PUT')
                 @csrf
                 <div class="form-group">
-                    <label for="title">Title: </label>
-                    <input type="text" class="form-control" required="required" name="title"></br>
-                    <label for="content">Content: </label>
-                    <textarea type="text" class="form-control" required="required" name="content"></textarea></br>
-                    <label for="image">Feature Image: </label>
-                    <input type="file" class="form-control" required="required" name="image"></br>
-                    <button type="submit" name="submit" class="btn btn-primary float-right">Simpan</button>
+                    <label for="title">Judul</label>
+                    <input type="text" class="form-control" required="required" name="title" value="{{$article->title}}"></br>
                 </div>
+                <div class="form-group">
+                    <label for="content">Content</label>
+                    <input type="text" class="form-control" required="required" name="content" value="{{$article->content}}"></br>
+                </div>
+                    <div class="form-group">
+                    <label for="image">Feature Image</label>
+                    <input type="file" class="form-control" required="required" name="image" value="{{$article->featured_image}}"></br>
+                    <img width="150px" src="{{asset('storage/'.$article->featured_image)}}">
+                </div>
+                <button type="submit" class="btn btn-primary float-right">Ubah Data</button>
             </form>
         </div>
         <div class="card-footer">
