@@ -102,4 +102,7 @@ Route::middleware(['auth'])->group(function(){
     Route::resource('articles', ArticlesController::class);
 
     Route::get('/article/cetak_pdf', [ArticlesController::class, 'cetak_pdf']);
+
+    //Pert 10 tugas
+    Route::get('mahasiswa/{id}/cetak_pdf', [MahasiswaController::class, 'cetak_pdf']);
 });

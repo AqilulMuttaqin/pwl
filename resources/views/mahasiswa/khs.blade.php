@@ -47,7 +47,9 @@
                 @endforeach
             </table>
             <a href="{{url('mahasiswa')}}" class="btn btn-success">Kembali</a>
+            <a href="/mahasiswa/{{$mahasiswa->id}}/cetak_pdf" class="btn btn-warning">Cetak</a>
         </div>
+      </div>
     </section>
 </div>
 @endsection
