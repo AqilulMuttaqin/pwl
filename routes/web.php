@@ -105,4 +105,7 @@ Route::middleware(['auth'])->group(function(){
 
     //Pert 10 tugas
     Route::get('mahasiswa/{id}/cetak_pdf', [MahasiswaController::class, 'cetak_pdf']);
+
+    //Pert 12
+    Route::post('/mahasiswa/data', [MahasiswaController::class, 'data']);
 });
